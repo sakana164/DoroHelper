@@ -115,6 +115,11 @@ global g_settings := Map(
     ;妙妙工具
     "StoryModeAutoStar", 0,      ;剧情模式自动收藏
     "StoryModeAutoChoose", 0,    ;剧情模式自动选择
+    ;清除红点
+    "ClearRed", 0,               ;总开关
+    "ClearRedNotice", 0,         ;清除公告红点
+    "ClearRedRecycling", 0,      ;自动升级循环室
+    "ClearRedSynchro", 0,        ;自动升级同步器
     ;启动/退出相关
     "CloseAdvertisement", 0,     ;关闭启动提示
     "CloseNoticeSponsor", 0,     ;关闭赞助提示
@@ -465,6 +470,11 @@ FindText().PicLib("|<推图·放大镜>*200$51.zzzy03zzzzzy003zzzzz0007zzzzk000D
 FindText().PicLib("|<推图·缩小镜>*200$51.zzzzk7zzzzzzU03zzzzzU007zzzzk000Dzzzw0000zzzz07zU1zzzk3zzU7zzw1zzz0Tzz0zzzw3zzkDzzzkDzy3zzzz0zzUzzzzw7zs7zzzzkTz1zzzzy3zsDzzzzsDy3zzzzz1zkTzzzzwDy7zzzzzUzkzzzzzw7w7zzzzzUzUz0003y7w7s000TkzUz0003y7w7s000TkzUzU003y7w7zzzzzUzkzzzzzw7y3zzzzzUzkTzzzzsDy3zzzzz1zsDzzzzsDz1zzzzy3zw7zzzzUTzUTzzzs7zy1zzzz1zzs7zzzUDzz0Tzzs3zzk0zzy0zzw01zz0Dzz001y03zzk60001zzw1w000Tzz0Tk00Dzzk7zk0Dzzw1zzzzzzz0Tzzzzzzk7zzzzzzw1zzzzzzz0Tzzzzzzs7zzzzzzzVzzzzzzzyTzzzzzzzU", 1)
 FindText().PicLib("|<推图·红色的三角>DF8DAB-0.925$42.00000M000000M000007s000007s00000Ts00000Ts00001zs00001zs00007zy00007zy0000Tzy0000Tzy0001zzy0001zzy0001zzy000Tzzy000Tzzy001zzzzU01zzzzU07zzzzU07zzzzU0zzzzzU0zzzzzU3zzzzzU3zzzzzUDzzzzzsDzzzzzszzzzzzszzzzzzs0zzzzzs0zzzzzs000Tzzs000Tzzs00007zs00007zs000000T000000TU", 1)
 FindText().PicLib("|<推图·地图的指针>*200$40.zzw0zzzzy00Tzzz000Dzzs000Tzy0000Tzk0000zy00001zk00003z00000Ds00000TU00000w000003k000006007s00M01zs01U0Dzk0600zz00007zy0000Tzs0001zzU0007zy0000Tzs0001zzU0803zw00U0Dzk0600Ty00M00TU01k000007000000w000003s00000TU00001z000007w00000zs00003zU0000Tz00001zw0000Dzs0001zzU0007zz0000zzy0003zzs000Tzzk003zzzU00Dzzy001zzzw00Dzzzs00zzzzU07zzzz00zzzzy07zzzzw0Tzzzzk3zzzzzUTzzzzz3zzzzzyTzzs", 1)
+;tag 清除红点
+FindText().PicLib("|<循环室·自动选择>*200$48.00000Tw003000Tw007U00Tw007k00Tw00Dk00Tw00Ds00Tw00Tw00Tw00zw00Tw00zy00Tw01zz00Tw03zz00Tw07zzU0Tw07zzk0Tw0Dzzk0Tw0Tzzs0Tw0Tzzw0Tw0zzzw0Tw0zzzy0Tw0zzzy0Tw00Tw00Tw00Tw00Tw00Tw00Tw00Tw00Tw00Tw00Tw00Tw0zzzz0Tw0Tzzy0Tw0Tzzw0Tw0Dzzw0Tw07zzs0Tw07zzs0Tw03zzk0Tw01zzU0Tw01zz00Tw00zz00Tw00Ty00Tw00Tw00Tw00Dw00Tw007s00Tw007k00Tw003k00Tw001U00Tw001U0U", 1)
+FindText().PicLib("|<循环室·升级>*230$80.zzyzzzzzbzzzzzzy7sTzzkTzzzzzy0y7zzw7U00Dzy07Vzzz3s003zw03sTzzUy001zk07y7zzsTU00TU07zVzzw7zUw7s03zsTzz3zsD1y0Uzy7zzVzy7kznsDzVzzsSTVwDzy3zsTzwD3sS3zzUzy7zy7ky7VzzsDzVzz1sDVsTzy3zsTzU07sS0DzUzy7zw03y701zsDzVzz00zVk0E000003kkTkQ04000000zwDw3z1000000Dy3z0zkk000003z1zkDwDz0zw3zzkww1y3zsTzVzzs0D0TVzy7zsTzw03U3sTzVzy7zy00s0QDzkTzVzz01y673zw7zsTzk7zVUUzz1zy7zwDzkQ0TzUzzVzzzzg707zsDzsTzzz33s3zw3zy7zzz0Uz0zz1zzVzzy00DUDzUzzsTzw047k0zkDzy7zw0D1s07k7zzVzz0DUw20s3zzsTzsDsA1k21zzy7zyTw70z0kzzzVzzzzVkTsQTzzsTzzzwyTzi", 1)
+FindText().PicLib("|<同步器·增强>*200$131.zzzzztzzbzzzzzzzzzzzzzz0Dzz1zy0zzzzzzzzzzzzzy0Tzk3zw0Dzzzzzzzzzzzzw0zz03zs0Dz0007zzs00Dzs1zy03zU0zy0007U0000Tzk3zy07z03zw000D00000zzU7zw07w0Dzs000S00001zz0Dzw0Ds0Tzk000w00003zy0Tzw1zU1zzU001s00007zw0zzk3y03zz0003k0000Dzs1zU000007y0007U0000Tzk3z000000Dw000D07zs0zzU7y000000Tzzw0S0Dzk1zz0Dw000000zzzs0w0TzU3zy0Ts000001zzzk1s0zz07zs0zk000003zzzU3k0000Ds001UDw1zU7zzz07U0000Tk0030Qs3b0Dzzy0D00000zU00600k700Tw000S00001z000A01UA00zk000w00003y000M210M01zU001s00007w000k620kE3z0003k0000Ds001UA011U7y0007ny03zzk0030Q0030Dw000Dzy0Dzzk00C0s00C0Ts000Tzw0Tzzz0Dw1k00Q0zk000zzs0zzzy0Ts3X0Rs1zU003k00001zw0zk360FU3z0DzzU00003zs1zU000007y0Tzz000007zk3z000000Dw0zzy00000DzU7y000000Ts1zzw00000Tz0Dw000000zU3zzs00000zy0Ts000001z07zzk00001zw0zvzzzzzzy0DzzU00003zs1zzzzzzzzw00070D07U7zk3zzzzzzzzs00060S0D0DzU7zk00003zk000Q0w0S0Tz0DzU00007zU000s1s0w0zy0Tz00000Dz0001k3k1k1zw0zy00000Tw0003U00003zs1lw00000zs0007000007zk03s00001zk000C00000DzU07k1zzU3zrzs0Q00000Tz00DU7zz07zzzs0s00000zw00T07zy0Dzzzk1k00001z000y00000TzzzU3U00003k000w00000zzzy077y03U7U001s00001zzzw0Dzy0D0T0007k00003zzzs0zzw0Q0z001zU00007zzzk1zzs0s0y00Dz00000DzzzU3zzk1k1w03zy0Dzw0Tzzz07zzU3U3w0Tzw0Tzs0zzzw0Dz00003s3zzs0zzk1zzzs0M000007kzzzk00003zzzU0k000007rzzzU00007zy003U00000Dzzzz00000Dzw007000000Dzzzy00000Tzs00C000000Tzzzw00000zzs00Q000000zzzzs00001zzk01s000000zzzzk1zzU3zzU07k000Tk1zzzzU7zz07zz00TU1zzzU7zzzz0Dzy0Dzy03zzzzzzVzzzzy0Tzy0TzzzzzzzzzzDs", 1)
+FindText().PicLib("|<同步器·开始增强>*200$157.zzzzzzznzzrzzzzzrzDzzzzzzzzzzzzzzsTzkTzzVzVzUzzzzzzzw00000TwDzsDzzkzkTUTk07001w00000Dy7zs7zzsTsDkTs03U00y000007y3zw7zzwDy3kTw01k00T000003z1zy3zzy7z7sDy00s00DU00001zVzy3tzz3s000TzsQDy7zw7z1zzkzz1kTzVw000DzwC7z3zy3zUzz00T1w7zky0007zy73zVzz1zkTzU07Vy3zkT7sz3zz3U00zzUzsDzk07UzUz01WAQVzzVk00TzkTw7zs03UzkDU0laAEz00s00DzsDy3zz1VkTs7k0Ml68TU0Q007zw7z1zzVkk001s0AMWADk0Dz3zzy3zUzzksE000zkyCF67s07zVzzz1zkTzsQ8000DsT3Mr3wDzzUzzzUzsDzsC60047wDVwDVy7zU006000001wC31zz7y7k000y7zk003000000y71zzzjz3s000T3zs001U00000T3VzzzzzVw000DVzw63Uk00000D1kzzzzzkzzzzzk067VkTy3zkTzUES001zsTk00Ds033ksDz1zsDzs0D000zwDs007w01VsQ7zUzw7zy0DU00Ty7w003y00kMC3zkTy3zzU7k00Dz2S001zzkM001zkDz1zzs3sTy7zU73zkzzsA000zsDzUzzy0wDz3zU3VzsTzw6000Ts7zkTzz0C7zVz01k00Dzy3zUwzw3zsDzzU73zkz01s007zz1zsMTw3zw7zzU1VzsTU7w003zzUzwA7w1zy3zzUUkzwDkDy7zVzzkzy71w1zz1zzUMsTy7wzz3zkzzsTy00w1zzUzzUSw003zzzU00TzsA000A1zzkTzUTy001zzzk00Dy0600061zzsDzkTz000zzzs007z070003Vzzw7zwTzU00TzzwDy3zk3U0DUtzzy3zzTzkzwDzzy7zVzs3zzzsk", 1)
 ;endregion 识图素材
 ;region 创建GUI
 ;tag 基础配置
@@ -834,7 +844,16 @@ g_settingPages["Event"].Push(SetEventSpecialDaily)
 ;tag 二级设置Settings
 SetSettingsTitle := doroGui.Add("Text", "x290 y40 R1 +0x0100 Section", "====设置选项====")
 g_settingPages["Settings"].Push(SetSettingsTitle)
-cbOpenBlablalink := AddCheckboxSetting(doroGui, "OpenBlablalink", "任务完成后打开Blablalink", "R1")
+cbClearRed := AddCheckboxSetting(doroGui, "ClearRed", "任务完成后清除红点[金Doro]", "R1")
+g_settingPages["Settings"].Push(cbClearRed)
+cbClearRedNotice := AddCheckboxSetting(doroGui, "ClearRedNotice", "清除公告红点", "R1 xs+15")
+g_settingPages["Settings"].Push(cbClearRedNotice)
+cbClearRedRecycling := AddCheckboxSetting(doroGui, "ClearRedRecycling", "自动升级循环室", "R1 xs+15")
+g_settingPages["Settings"].Push(cbClearRedRecycling)
+cbClearRedSynchro := AddCheckboxSetting(doroGui, "ClearRedSynchro", "自动升级同步器❔️", "R1 xs+15")
+doroGui.Tips.SetTip(cbClearRedSynchro, "不会使用红球箱子")
+g_settingPages["Settings"].Push(cbClearRedSynchro)
+cbOpenBlablalink := AddCheckboxSetting(doroGui, "OpenBlablalink", "任务完成后打开Blablalink", "R1 xs")
 doroGui.Tips.SetTip(cbOpenBlablalink, "勾选后，当 DoroHelper 完成所有已选任务后，会自动在你的默认浏览器中打开 Blablalink 网站")
 g_settingPages["Settings"].Push(cbOpenBlablalink)
 cbDoroClosing := AddCheckboxSetting(doroGui, "DoroClosing", "任务完成后关闭Doro", "R1")
@@ -1047,6 +1066,12 @@ ClickOnDoro(*) {
         }
         CheckEvent()
     }
+    if g_settings["ClearRed"]
+        if UserLevel < 3 {
+            MsgBox("当前用户组不支持清除红点，请点击赞助按钮升级会员组")
+            Pause
+        }
+    ClearRed()
     CalculateAndShowSpan()
     if UserLevel < 1 or !g_settings["CloseNoticeSponsor"] {
         Result := MsgBox("Doro完成任务！" outputText "`n可以支持一下Doro吗", , "YesNo")
@@ -5158,27 +5183,126 @@ EventSpecial() {
         AwardPass()
 }
 ;endregion 特殊活动
-;region 其他
-;tag 清除红点
+;region 清除红点
 ClearRed() {
-    AddLog("清除公告红点")
-    if (ok := FindText(&X, &Y, NikkeX + 0.933 * NikkeW . " ", NikkeY + 0.012 * NikkeH . " ", NikkeX + 0.933 * NikkeW + 0.009 * NikkeW . " ", NikkeY + 0.012 * NikkeH + 0.023 * NikkeH . " ", 0.4 * PicTolerance, 0.4 * PicTolerance, FindText().PicLib("红点"), , , , , , , TrueRatio, TrueRatio)) {
-        FindText().Click(X, Y, "L")
-        Sleep 1000
-        if (ok := FindText(&X, &Y, NikkeX + 0.490 * NikkeW . " ", NikkeY + 0.128 * NikkeH . " ", NikkeX + 0.490 * NikkeW + 0.016 * NikkeW . " ", NikkeY + 0.128 * NikkeH + 0.029 * NikkeH . " ", 0.4 * PicTolerance, 0.4 * PicTolerance, FindText().PicLib("红点"), , , , , , , TrueRatio, TrueRatio)) {
-            AddLog("清除活动公告红点")
-            FindText().Click(X - 30 * TrueRatio, Y + 30 * TrueRatio, "L")
+    ;tag 清除公告红点
+    if g_settings["ClearRedNotice"] {
+        AddLog("清除公告红点")
+        if (ok := FindText(&X, &Y, NikkeX + 0.933 * NikkeW . " ", NikkeY + 0.012 * NikkeH . " ", NikkeX + 0.933 * NikkeW + 0.009 * NikkeW . " ", NikkeY + 0.012 * NikkeH + 0.023 * NikkeH . " ", 0.4 * PicTolerance, 0.4 * PicTolerance, FindText().PicLib("红点"), , , , , , , TrueRatio, TrueRatio)) {
+            FindText().Click(X, Y, "L")
             Sleep 1000
-            ;把鼠标移动到活动栏
-            UserMove(1906, 452, TrueRatio)
-            AddLog("尝试滚动活动栏")
-            Send "{WheelDown 8}"
-            Sleep 500
+            while (ok := FindText(&X, &Y, NikkeX + 0.490 * NikkeW . " ", NikkeY + 0.128 * NikkeH . " ", NikkeX + 0.490 * NikkeW + 0.016 * NikkeW . " ", NikkeY + 0.128 * NikkeH + 0.029 * NikkeH . " ", 0.4 * PicTolerance, 0.4 * PicTolerance, FindText().PicLib("红点"), , , , , , , TrueRatio, TrueRatio)) {
+                if A_Index = 1 {
+                    AddLog("清除活动公告红点")
+                    FindText().Click(X - 30 * TrueRatio, Y + 30 * TrueRatio, "L")
+                    Sleep 1000
+                    ;把鼠标移动到活动栏
+                    UserMove(1906, 452, TrueRatio)
+                }
+                AddLog("查找红点")
+                while (ok := FindText(&X, &Y, NikkeX + 0.620 * NikkeW . " ", NikkeY + 0.189 * NikkeH . " ", NikkeX + 0.617 * NikkeW + 0.013 * NikkeW . " ", NikkeY + 0.189 * NikkeH + 0.677 * NikkeH . " ", 0.3 * PicTolerance, 0.3 * PicTolerance, FindText().PicLib("红点"), , , , , , , TrueRatio, TrueRatio)) {
+                    FindText().Click(X, Y, "L")
+                    Sleep 2000
+                    Confirm
+                    Sleep 1000
+                }
+                AddLog("尝试滚动活动栏")
+                Send "{WheelDown 33}"
+                Sleep 500
+            }
+            AddLog("公告红点已清除")
+            BackToHall
         }
+        else AddLog("未发现公告红点")
     }
-    else AddLog("未发现公告红点")
+    ;tag 自动升级循环室
+    if g_settings["ClearRedRecycling"] {
+        AddLog("自动升级循环室")
+        if (ok := FindText(&X, &Y, NikkeX + 0.344 * NikkeW . " ", NikkeY + 0.719 * NikkeH . " ", NikkeX + 0.344 * NikkeW + 0.011 * NikkeW . " ", NikkeY + 0.719 * NikkeH + 0.018 * NikkeH . " ", 0.4 * PicTolerance, 0.4 * PicTolerance, FindText().PicLib("红点"), , , , , , , TrueRatio, TrueRatio)) {
+            AddLog("点击进入前哨基地")
+            FindText().Click(X, Y, "L")
+            Sleep 1000
+            if (ok := FindText(&X := "wait", &Y := 5, NikkeX + 0.582 * NikkeW . " ", NikkeY + 0.805 * NikkeH . " ", NikkeX + 0.582 * NikkeW + 0.011 * NikkeW . " ", NikkeY + 0.805 * NikkeH + 0.023 * NikkeH . " ", 0.4 * PicTolerance, 0.4 * PicTolerance, FindText().PicLib("红点"), , , , , , , TrueRatio, TrueRatio)) {
+                Sleep 1000
+                AddLog("点击进入循环室")
+                FindText().Click(X, Y, "L")
+                Sleep 1000
+                if (ok := FindText(&X := "wait", &Y := 3, NikkeX + 0.612 * NikkeW . " ", NikkeY + 0.907 * NikkeH . " ", NikkeX + 0.612 * NikkeW + 0.013 * NikkeW . " ", NikkeY + 0.907 * NikkeH + 0.020 * NikkeH . " ", 0.4 * PicTolerance, 0.4 * PicTolerance, FindText().PicLib("红点"), , , , , , , TrueRatio, TrueRatio)) {
+                    AddLog("点击进入")
+                    FindText().Click(X, Y, "L")
+                    Sleep 3000
+                    while (ok := FindText(&X := "wait", &Y := 1, NikkeX + 0.333 * NikkeW . " ", NikkeY + 0.040 * NikkeH . " ", NikkeX + 0.333 * NikkeW + 0.354 * NikkeW . " ", NikkeY + 0.040 * NikkeH + 0.865 * NikkeH . " ", 0.4 * PicTolerance, 0.4 * PicTolerance, FindText().PicLib("红点"), , , , , , , TrueRatio, TrueRatio)) {
+                        AddLog("点击类型研究")
+                        FindText().Click(X, Y + 200 * TrueRatio, "L")
+                        Sleep 1000
+                        loop {
+                            if (ok := FindText(&X := "wait", &Y := 3, NikkeX + 0.397 * NikkeW . " ", NikkeY + 0.767 * NikkeH . " ", NikkeX + 0.397 * NikkeW + 0.089 * NikkeW . " ", NikkeY + 0.767 * NikkeH + 0.064 * NikkeH . " ", 0.3 * PicTolerance, 0.3 * PicTolerance, FindText().PicLib("循环室·自动选择"), , , , , , , TrueRatio, TrueRatio)) {
+                                AddLog("点击自动选择")
+                                FindText().Click(X, Y, "L")
+                                Sleep 500
+                            }
+                            if (ok := FindText(&X := "wait", &Y := 1, NikkeX + 0.489 * NikkeW . " ", NikkeY + 0.764 * NikkeH . " ", NikkeX + 0.489 * NikkeW + 0.150 * NikkeW . " ", NikkeY + 0.764 * NikkeH + 0.071 * NikkeH . " ", 0.3 * PicTolerance, 0.3 * PicTolerance, FindText().PicLib("循环室·升级"), , , , , , , TrueRatio, TrueRatio)) {
+                                AddLog("点击升级")
+                                FindText().Click(X, Y, "L")
+                                Sleep 500
+                                Confirm
+                                Sleep 500
+                                Confirm
+                            }
+                            else {
+                                Confirm
+                                break
+                            }
+                        }
+                    }
+                    BackToHall
+                }
+            }
+            else AddLog("未发现循环室红点")
+        }
+        else AddLog("未发现前哨基地红点")
+    }
+    ;tag 自动升级同步器
+    if g_settings["ClearRedSynchro"] {
+        AddLog("自动升级同步器")
+        if (ok := FindText(&X, &Y, NikkeX + 0.344 * NikkeW . " ", NikkeY + 0.719 * NikkeH . " ", NikkeX + 0.344 * NikkeW + 0.011 * NikkeW . " ", NikkeY + 0.719 * NikkeH + 0.018 * NikkeH . " ", 0.4 * PicTolerance, 0.4 * PicTolerance, FindText().PicLib("红点"), , , , , , , TrueRatio, TrueRatio)) {
+            AddLog("点击进入前哨基地")
+            FindText().Click(X, Y, "L")
+            Sleep 1000
+            if (ok := FindText(&X := "wait", &Y := 5, NikkeX + 0.443 * NikkeW . " ", NikkeY + 0.804 * NikkeH . " ", NikkeX + 0.443 * NikkeW + 0.014 * NikkeW . " ", NikkeY + 0.804 * NikkeH + 0.025 * NikkeH . " ", 0.4 * PicTolerance, 0.4 * PicTolerance, FindText().PicLib("红点"), , , , , , , TrueRatio, TrueRatio)) {
+                Sleep 1000
+                AddLog("点击进入同步器")
+                FindText().Click(X, Y, "L")
+                Sleep 1000
+                if (ok := FindText(&X := "wait", &Y := 3, NikkeX + 0.612 * NikkeW . " ", NikkeY + 0.907 * NikkeH . " ", NikkeX + 0.612 * NikkeW + 0.013 * NikkeW . " ", NikkeY + 0.907 * NikkeH + 0.020 * NikkeH . " ", 0.4 * PicTolerance, 0.4 * PicTolerance, FindText().PicLib("红点"), , , , , , , TrueRatio, TrueRatio)) {
+                    AddLog("点击进入")
+                    FindText().Click(X, Y, "L")
+                    Sleep 2000
+                    loop {
+                        if (ok := FindText(&X := "wait", &Y := 1, NikkeX + 0.477 * NikkeW . " ", NikkeY + 0.201 * NikkeH . " ", NikkeX + 0.477 * NikkeW + 0.043 * NikkeW . " ", NikkeY + 0.201 * NikkeH + 0.045 * NikkeH . " ", 0.3 * PicTolerance, 0.3 * PicTolerance, FindText().PicLib("同步器·增强"), , , , , , , TrueRatio, TrueRatio)) {
+                            AddLog("点击增强")
+                            FindText().Click(X, Y, "L")
+                            Sleep 1000
+                            if (ok := FindText(&X := "wait", &Y := 1, NikkeX + 0.470 * NikkeW . " ", NikkeY + 0.711 * NikkeH . " ", NikkeX + 0.470 * NikkeW + 0.058 * NikkeW . " ", NikkeY + 0.711 * NikkeH + 0.032 * NikkeH . " ", 0.3 * PicTolerance, 0.3 * PicTolerance, FindText().PicLib("同步器·开始增强"), , , , , , , TrueRatio, TrueRatio)) {
+                                AddLog("点击开始增强")
+                                FindText().Click(X, Y, "L")
+                                Sleep 1000
+                            }
+                            else break
+                        }
+                        else {
+                            Confirm
+                        }
+                    }
+                }
+            }
+            else AddLog("未发现同步器红点")
+        }
+        else AddLog("未发现前哨基地红点")
+    }
+    BackToHall
 }
-;endregion 其他
+;endregion 清除红点
 ;region 妙妙工具
 ;tag 剧情模式
 StoryMode(*) {
