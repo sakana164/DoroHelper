@@ -3188,7 +3188,7 @@ CheckUserGroup(forceUpdate := false) {
     cacheTimestamp := A_TickCount
     return highestMembership
 }
-;tag 根据输入的哈希值检查用户组 (为V4扁平模型修改)
+;tag 查询用户组
 CheckUserGroupByHash(inputHash) {
     global g_MembershipLevels, g_PriceMap, LocaleName, g_DefaultRegionPriceData
     AddLog("开始检查输入哈希值 '" . inputHash . "' 的用户组信息……", "Blue")
