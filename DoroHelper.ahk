@@ -844,6 +844,9 @@ BtnBurstMode := doroGui.Add("Button", " x+5 yp-3 w25 h25", "▶️").OnEvent("Cl
 TextAutoAdvance := doroGui.Add("Text", "xp R1 xs+10 +0x0100", "推图模式🎁")
 doroGui.Tips.SetTip(TextAutoAdvance, "[beta3]半自动推图。视野调到最大。在地图中靠近怪的地方启动，有时需要手动找怪和找机关`nMap Advancement:Semi-automatic map advancement. Set the view to the maximum. Start near the monster in the map, sometimes you need to manually find monsters and mechanisms")
 BtnAutoAdvance := doroGui.Add("Button", " x+5 yp-3 w25 h25", "▶️").OnEvent("Click", AutoAdvance)
+TextTracingTheStars := doroGui.Add("Text", "xp R1 xs+10 +0x0100", "音游小游戏")
+doroGui.Tips.SetTip(TextTracingTheStars, "在可以打音符的页面启动`nStart on the page where you can enter notes.")
+BtnTracingTheStars := doroGui.Add("Button", " x+5 yp-3 w25 h25", "▶️").OnEvent("Click", TracingTheStars)
 ;tag 日志
 doroGui.AddGroupBox("x600 y260 w400 h390 Section", "日志")
 btnCopyLog := doroGui.Add("Button", "xp+320 yp-5 w80 h30", "导出日志")
@@ -8023,6 +8026,61 @@ AutoAdvance(*) {
             }
         }
     }
+}
+;小游戏
+TracingTheStars(*) {
+    Initialization()
+    AddLog("感谢群友帮我凹分，因此我连夜编写音游小游戏脚本来回馈群友，你看到这条信息就代表已经启动", "Fuchsia")
+    loop {
+        ; 这里的参数保持了你原始脚本中的坐标计算逻辑
+        ; 判定 D
+        if (ok := FindText(&X, &Y, NikkeX + 0.345 * NikkeW . " ", NikkeY + 0.682 * NikkeH . " ", NikkeX + 0.345 * NikkeW + 0.075 * NikkeW . " ", NikkeY + 0.788 * NikkeH . " ", 0.35 * PicTolerance, 0.35 * PicTolerance, FindText().PicLib("White"), , , , , , 0, TrueRatio, TrueRatio)) {
+            AddLog("D")
+            Send("{d Up}{d Down}")
+        }
+        ; 判定 F
+        if (ok := FindText(&X, &Y, NikkeX + 0.421 * NikkeW . " ", NikkeY + 0.682 * NikkeH . " ", NikkeX + 0.421 * NikkeW + 0.069 * NikkeW . " ", NikkeY + 0.788 * NikkeH . " ", 0.35 * PicTolerance, 0.35 * PicTolerance, FindText().PicLib("White"), , , , , 0, 0, TrueRatio, TrueRatio)) {
+            AddLog("F")
+            Send("{f Up}{f Down}")
+        }
+        ; 判定 J
+        if (ok := FindText(&X, &Y, NikkeX + 0.501 * NikkeW . " ", NikkeY + 0.682 * NikkeH . " ", NikkeX + 0.501 * NikkeW + 0.069 * NikkeW . " ", NikkeY + 0.788 * NikkeH . " ", 0.35 * PicTolerance, 0.35 * PicTolerance, FindText().PicLib("White"), , , , , 0, 0, TrueRatio, TrueRatio)) {
+            AddLog("J")
+            Send("{j Up}{j Down}")
+        }
+        ; 判定 K
+        if (ok := FindText(&X, &Y, NikkeX + 0.577 * NikkeW . " ", NikkeY + 0.682 * NikkeH . " ", NikkeX + 0.577 * NikkeW + 0.075 * NikkeW . " ", NikkeY + 0.788 * NikkeH . " ", 0.35 * PicTolerance, 0.35 * PicTolerance, FindText().PicLib("White"), , , , , 0, 0, TrueRatio, TrueRatio)) {
+            AddLog("K")
+            Send("{k Up}{k Down}")
+        }
+        ; 判定 左侧长条 (LShift)
+        if (ok := FindText(&X, &Y, NikkeX + 0.341 * NikkeW . " ", NikkeY + 0.682 * NikkeH . " ", NikkeX + 0.341 * NikkeW + 0.156 * NikkeW . " ", NikkeY + 0.803 * NikkeH . " ", 0.35 * PicTolerance, 0.35 * PicTolerance, FindText().PicLib("Green"), , , , , 0, 0, TrueRatio, TrueRatio)) {
+            AddLog("Left")
+            Send("{LShift Up}{LShift Down}")
+        }
+        ; 判定 右侧长条 (RShift)
+        if (ok := FindText(&X, &Y, NikkeX + 0.501 * NikkeW . " ", NikkeY + 0.682 * NikkeH . " ", NikkeX + 0.501 * NikkeW + 0.147 * NikkeW . " ", NikkeY + 0.803 * NikkeH . " ", 0.35 * PicTolerance, 0.35 * PicTolerance, FindText().PicLib("Purple"), , , , , 0, 0, TrueRatio, TrueRatio)) {
+            AddLog("Right")
+            Send("{RShift Up}{RShift Down}")
+        }
+        ; 判定 空格 (Space)
+        if (ok := FindText(&X, &Y, NikkeX + 0.372 * NikkeW . " ", NikkeY + 0.682 * NikkeH . " ", NikkeX + 0.372 * NikkeW + 0.052 * NikkeW . " ", NikkeY + 0.803 * NikkeH . " ", 0.35 * PicTolerance, 0.35 * PicTolerance, FindText().PicLib("Yellow"), , , , , 0, 0, TrueRatio, TrueRatio)) {
+            AddLog("Space")
+            Send("{Space Up}{Space Down}")
+        }
+    }
+}
+OnExit(ReleaseAllKeys)
+ReleaseAllKeys(ExitReason, ExitCode) {
+    ; 定义需要释放的按键列表
+    keys := ["d", "f", "j", "k", "LShift", "RShift", "Space"]
+    for key in keys {
+        if GetKeyState(key) {
+            Send("{" key " Up}")
+        }
+    }
+    ; 返回 0 允许脚本正常退出
+    return 0
 }
 ;endregion 妙妙工具
 ;region 快捷键
