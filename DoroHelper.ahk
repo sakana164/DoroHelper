@@ -902,13 +902,13 @@ if A_UserName != "12042" {
         CheckUserGroup
     }
 }
-;tag 广告
+;tag 广告（已禁用随启动弹出）
 ; 如果满足以下任一条件，则显示广告：
 ; 1. 未勾选关闭广告 (无论用户是谁)
 ; 2. 是普通用户 (无论是否勾选了关闭广告，因为普通用户无法关闭)
-if (!g_settings["CloseAdvertisement"] OR g_numeric_settings["UserLevel"] < 1) {
-    Advertisement
-}
+; if (!g_settings["CloseAdvertisement"] OR g_numeric_settings["UserLevel"] < 1) {
+;     Advertisement
+; }
 if !g_settings["CloseHelp"] {
     ClickOnHelp
 }
